@@ -1,2 +1,2 @@
 # mlflow_demo1
-This is basic mlflow project my personal studies
+This is a basic mlflow project for my personal studies

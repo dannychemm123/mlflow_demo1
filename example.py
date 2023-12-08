@@ -73,17 +73,19 @@ if __name__ == "__main__":
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
 
-        #mlflow.sklearn.log_model(lr, "model")
+        mlflow.sklearn.log_model(lr, "model")
 
         remote_server_uri = 'https://dagshub.com/dannychemm123/'
         mlflow.set_tracking_uri(remote_server_uri)
 
-        tracking_uri_type_store = urljoin(mlflow.get_tracking_uri()).scheme
-        if tracking_uri_type_store != 'file':
-            mlflow.sklearn.log_model(
-                lr, "model", registered_model_name= 'ElasticnetWineModel'
-            )
-        else:
-            mlflow.sklearn.log_model(
-                lr, "model"
-            )
+        mlflow.sklearn.log_model(lr, "model")
+
+        # tracking_uri_type_store = urljoin(mlflow.get_tracking_uri()).scheme
+        # if tracking_uri_type_store != 'file':
+        #     mlflow.sklearn.log_model(
+        #         lr, "model", registered_model_name= 'ElasticnetWineModel'
+        #     )
+        # # else:
+        #     mlflow.sklearn.log_model(
+        #         lr, "model"
+        #     )

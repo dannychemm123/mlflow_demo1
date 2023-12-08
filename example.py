@@ -33,14 +33,15 @@ if __name__ == "__main__":
     # wine_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wine-quality.csv")
     # data = pd.read_csv(wine_path)
 
-    csv_url = ('https://github.com/databricks/mlflow/blob/master/examples/r_wine/wine-quality.csv')
+    csv_url = ('H:/DATA_SCIENCE_PROJECTS/mlfow_example/wine-quality.csv')
     try:
         data = pd.read_csv(csv_url)
+        
     except Exception as e:
         logging.exception('Unable to read data from CSV file') 
         # Split the data into training and test sets. (0.75, 0.25) split.
-    data.head()
-    sys.exit()
+    #print(data.head())
+    #sys.exit()
     
     train, test = train_test_split(data)
 

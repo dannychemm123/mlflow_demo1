@@ -32,7 +32,7 @@ if __name__ == "__main__":
     # wine_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wine-quality.csv")
     # data = pd.read_csv(wine_path)
 
-    csv_url = ('C:/Users/HP PROBOOK/Desktop/datascience/mlfow_example/mlflow/examples/r_wine/wine-quality.csv')
+    csv_url = ('https://github.com/databricks/mlflow/blob/master/examples/r_wine/wine-quality.csv')
     try:
         data = pd.read_csv(csv_url)
     except Exception as e:

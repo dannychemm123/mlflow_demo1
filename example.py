@@ -12,7 +12,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 from urllib.parse import urljoin
-
+from urllib.parse import urlparse
 import mlflow
 import mlflow.sklearn
 
@@ -78,14 +78,14 @@ if __name__ == "__main__":
         remote_server_uri = 'https://dagshub.com/dannychemm123/'
         mlflow.set_tracking_uri(remote_server_uri)
 
-        mlflow.sklearn.log_model(lr, "model")
+        #mlflow.sklearn.log_model(lr, "model")
 
-        # tracking_uri_type_store = urljoin(mlflow.get_tracking_uri()).scheme
-        # if tracking_uri_type_store != 'file':
-        #     mlflow.sklearn.log_model(
-        #         lr, "model", registered_model_name= 'ElasticnetWineModel'
-        #     )
-        # # else:
-        #     mlflow.sklearn.log_model(
-        #         lr, "model"
-        #     )
+        tracking_uri_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        if tracking_uri_type_store != 'file':
+            mlflow.sklearn.log_model(
+                lr, "model", registered_model_name= 'ElasticnetWineModel'
+           )
+        else:
+            mlflow.sklearn.log_model(
+                lr, "model"
+            )

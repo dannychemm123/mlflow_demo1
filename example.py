@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
         mlflow.sklearn.log_model(lr, "model")
 
-        remote_server_uri = 'https://dagshub.com/dannychemm123/'
+        remote_server_uri = 'https://dagshub.com/dannychemm123/mlflow_demo1.mlflow'
         mlflow.set_tracking_uri(remote_server_uri)
 
         #mlflow.sklearn.log_model(lr, "model")
